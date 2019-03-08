@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -15,12 +17,14 @@ public class BookAdpater extends RecyclerView.Adapter<BookAdpater.MyViewHolder> 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name, pages, isbn;
+        Button btLent;
 
         MyViewHolder(View view) {
             super(view);
             name = view.findViewById(R.id.TextViewBookName);
             pages = view.findViewById(R.id.TextViewPages);
             isbn = view.findViewById(R.id.TextViewISBN);
+            btLent=view.findViewById(R.id.buttonLent);
         }
     }
 
@@ -41,6 +45,14 @@ public class BookAdpater extends RecyclerView.Adapter<BookAdpater.MyViewHolder> 
         viewHolder.name.setText(book.getName());
         viewHolder.pages.setText(book.getPages()+"");
         viewHolder.isbn.setText(book.getISBN()+"");
+        viewHolder.btLent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String lent = book.isLent()? "Not available" : "Available" ;
+                Toast.makeText(v.getContext(),lent,Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
     @Override
