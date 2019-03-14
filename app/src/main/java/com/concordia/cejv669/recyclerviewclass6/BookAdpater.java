@@ -16,7 +16,7 @@ public class BookAdpater extends RecyclerView.Adapter<BookAdpater.MyViewHolder> 
 
 
     class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name, pages, isbn;
+        TextView name, pages, isbn, testLent;
         Button btLent;
 
         MyViewHolder(View view) {
@@ -24,6 +24,7 @@ public class BookAdpater extends RecyclerView.Adapter<BookAdpater.MyViewHolder> 
             name = view.findViewById(R.id.TextViewBookName);
             pages = view.findViewById(R.id.TextViewPages);
             isbn = view.findViewById(R.id.TextViewISBN);
+            testLent = view.findViewById(R.id.testAval);
             btLent=view.findViewById(R.id.buttonLent);
         }
     }
@@ -45,6 +46,7 @@ public class BookAdpater extends RecyclerView.Adapter<BookAdpater.MyViewHolder> 
         viewHolder.name.setText(book.getName());
         viewHolder.pages.setText(book.getPages()+"");
         viewHolder.isbn.setText(book.getISBN()+"");
+        viewHolder.testLent.setText(book.isLent()+"");
         viewHolder.btLent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

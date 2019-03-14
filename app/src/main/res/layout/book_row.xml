@@ -41,4 +41,12 @@
         android:text="Availibility"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/testAval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLent"
+        tools:layout_editor_absoluteX="197dp" />
 </android.support.constraint.ConstraintLayout>
