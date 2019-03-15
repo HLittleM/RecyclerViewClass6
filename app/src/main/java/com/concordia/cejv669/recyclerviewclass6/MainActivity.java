@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 ba.notifyDataSetChanged();
                 Toast.makeText(getApplicationContext(),"Record added successfully", Toast.LENGTH_LONG).show();
             }
-        });   
+        });
 
         recyclerView.setAdapter(ba);
         bookList.addAll(generatedData());

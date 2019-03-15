@@ -24,8 +24,8 @@ public class BookAdpater extends RecyclerView.Adapter<BookAdpater.MyViewHolder> 
             name = view.findViewById(R.id.TextViewBookName);
             pages = view.findViewById(R.id.TextViewPages);
             isbn = view.findViewById(R.id.TextViewISBN);
-            testLent = view.findViewById(R.id.testAval);
             btLent=view.findViewById(R.id.buttonLent);
+            testLent=view.findViewById(R.id.aval);
         }
     }
 
@@ -41,7 +41,7 @@ public class BookAdpater extends RecyclerView.Adapter<BookAdpater.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final BookAdpater.MyViewHolder viewHolder, int i){
+    public void onBindViewHolder(@NonNull final BookAdpater.MyViewHolder viewHolder, final int i){
         final Book book= bookList.get(i);
         viewHolder.name.setText(book.getName());
         viewHolder.pages.setText(book.getPages()+"");
@@ -50,8 +50,12 @@ public class BookAdpater extends RecyclerView.Adapter<BookAdpater.MyViewHolder> 
         viewHolder.btLent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                book.setLent(!book.isLent());
+                bookList.set(i,book);
+                notifyDataSetChanged();
                 String lent = book.isLent()? "Not available" : "Available" ;
                 Toast.makeText(v.getContext(),lent,Toast.LENGTH_LONG).show();
+
             }
         });
 
